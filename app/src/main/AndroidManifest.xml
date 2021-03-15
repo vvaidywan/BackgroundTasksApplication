@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BackgroundTasksApplication">
+        <activity android:name=".BackgroundTasks2Activity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,16 +19,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".Services.MyService"/>
-        <service android:name=".Services.BoundService"
+
+        <service android:name=".Services.MyService" />
+        <service
+            android:name=".Services.BoundService"
             android:enabled="true"
+            android:exported="true" />
+        <service android:name=".JobScheduler.MyJobScheduler"
+            android:permission="android.permission.BIND_JOB_SERVICE"
             android:exported="true"/>
-        <receiver android:name=".Receivers.MyPhoneReceiver"
-            android:exported="true"
-            android:enabled="true">
+
+        <receiver
+            android:name=".Receivers.MyPhoneReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.PHONE_STATE" >
-                </action>
+                <action android:name="android.intent.action.PHONE_STATE"></action>
             </intent-filter>
         </receiver>
     </application>

@@ -66,6 +66,15 @@ class MainActivity : AppCompatActivity() {
             showTime(tv_time)
         }
 
+
+        //Background tasks 2 Exercises
+        //click on button 'Background tasks 2' to go to next activity with the related exercises
+        val btn = findViewById<Button>(R.id.btn_bgTask2)
+        btn.setOnClickListener {
+            val intent = Intent(this@MainActivity, BackgroundTasks2Activity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun showTime(view: TextView) {
